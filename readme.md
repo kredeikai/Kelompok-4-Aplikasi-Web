@@ -11,3 +11,7 @@ Cara penggunaannya pun sederhana: cukup membuat akun, memilih pertunjukan dan ku
 **Info Login Admin**
 Username : Admin
 Password : password
+
+**Info Login Theater**
+Username : THR760801
+Password : PWD649976
