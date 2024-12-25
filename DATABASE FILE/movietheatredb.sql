@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2021 at 08:23 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Waktu pembuatan: 25 Des 2024 pada 11.42
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_bookings`
+-- Struktur dari tabel `tbl_bookings`
 --
 
 CREATE TABLE `tbl_bookings` (
@@ -38,21 +39,12 @@ CREATE TABLE `tbl_bookings` (
   `ticket_date` date NOT NULL,
   `date` date NOT NULL,
   `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_bookings`
---
-
-INSERT INTO `tbl_bookings` (`book_id`, `ticket_id`, `t_id`, `user_id`, `show_id`, `screen_id`, `no_seats`, `amount`, `ticket_date`, `date`, `status`) VALUES
-(12, 'BKID6369842', 4, 4, 17, 3, 1, 380, '2021-04-15', '2021-04-15', 1),
-(13, 'BKID2313964', 6, 5, 21, 6, 4, 2400, '2021-04-16', '2021-04-15', 1),
-(14, 'BKID1766021', 6, 5, 22, 6, 2, 1200, '2021-04-16', '2021-04-16', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_contact`
+-- Struktur dari tabel `tbl_contact`
 --
 
 CREATE TABLE `tbl_contact` (
@@ -61,12 +53,12 @@ CREATE TABLE `tbl_contact` (
   `email` varchar(100) NOT NULL,
   `mobile` int(11) NOT NULL,
   `subject` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_login`
+-- Struktur dari tabel `tbl_login`
 --
 
 CREATE TABLE `tbl_login` (
@@ -75,26 +67,19 @@ CREATE TABLE `tbl_login` (
   `username` varchar(50) NOT NULL COMMENT 'email',
   `password` varchar(50) NOT NULL,
   `user_type` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_login`
+-- Dumping data untuk tabel `tbl_login`
 --
 
 INSERT INTO `tbl_login` (`id`, `user_id`, `username`, `password`, `user_type`) VALUES
-(1, 0, 'admin', 'password', 0),
-(2, 3, 'theatre', 'password', 1),
-(3, 4, 'theatre2', 'password', 1),
-(12, 2, 'harryden@gmail.com', 'password', 2),
-(15, 14, 'USR295127', 'PWD195747', 1),
-(17, 4, 'bruno@gmail.com', 'password', 2),
-(18, 6, 'THR760801', 'PWD649976', 1),
-(19, 5, 'james@gmail.com', 'password', 2);
+(1, 0, 'admin', 'password', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_movie`
+-- Struktur dari tabel `tbl_movie`
 --
 
 CREATE TABLE `tbl_movie` (
@@ -107,10 +92,10 @@ CREATE TABLE `tbl_movie` (
   `image` varchar(200) NOT NULL,
   `video_url` varchar(200) NOT NULL,
   `status` int(1) NOT NULL COMMENT '0 means active '
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_movie`
+-- Dumping data untuk tabel `tbl_movie`
 --
 
 INSERT INTO `tbl_movie` (`movie_id`, `t_id`, `movie_name`, `cast`, `desc`, `release_date`, `image`, `video_url`, `status`) VALUES
@@ -123,7 +108,7 @@ INSERT INTO `tbl_movie` (`movie_id`, `t_id`, `movie_name`, `cast`, `desc`, `rele
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_news`
+-- Struktur dari tabel `tbl_news`
 --
 
 CREATE TABLE `tbl_news` (
@@ -133,10 +118,10 @@ CREATE TABLE `tbl_news` (
   `news_date` date NOT NULL,
   `description` varchar(200) NOT NULL,
   `attachment` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_news`
+-- Dumping data untuk tabel `tbl_news`
 --
 
 INSERT INTO `tbl_news` (`news_id`, `name`, `cast`, `news_date`, `description`, `attachment`) VALUES
@@ -147,7 +132,7 @@ INSERT INTO `tbl_news` (`news_id`, `name`, `cast`, `news_date`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_registration`
+-- Struktur dari tabel `tbl_registration`
 --
 
 CREATE TABLE `tbl_registration` (
@@ -157,21 +142,12 @@ CREATE TABLE `tbl_registration` (
   `phone` varchar(12) NOT NULL,
   `age` int(2) NOT NULL,
   `gender` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_registration`
---
-
-INSERT INTO `tbl_registration` (`user_id`, `name`, `email`, `phone`, `age`, `gender`) VALUES
-(2, 'Harry Den', 'harryden@gmail.com', '1247778540', 22, 'gender'),
-(4, 'Bruno', 'bruno@gmail.com', '7451112450', 30, 'gender'),
-(5, 'James', 'james@gmail.com', '7124445696', 25, 'gender');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_screens`
+-- Struktur dari tabel `tbl_screens`
 --
 
 CREATE TABLE `tbl_screens` (
@@ -180,10 +156,10 @@ CREATE TABLE `tbl_screens` (
   `screen_name` varchar(110) NOT NULL,
   `seats` int(11) NOT NULL COMMENT 'number of seats',
   `charge` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_screens`
+-- Dumping data untuk tabel `tbl_screens`
 --
 
 INSERT INTO `tbl_screens` (`screen_id`, `t_id`, `screen_name`, `seats`, `charge`) VALUES
@@ -197,7 +173,7 @@ INSERT INTO `tbl_screens` (`screen_id`, `t_id`, `screen_name`, `seats`, `charge`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_shows`
+-- Struktur dari tabel `tbl_shows`
 --
 
 CREATE TABLE `tbl_shows` (
@@ -208,10 +184,10 @@ CREATE TABLE `tbl_shows` (
   `start_date` date NOT NULL,
   `status` int(11) NOT NULL COMMENT '1 means show available',
   `r_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_shows`
+-- Dumping data untuk tabel `tbl_shows`
 --
 
 INSERT INTO `tbl_shows` (`s_id`, `st_id`, `theatre_id`, `movie_id`, `start_date`, `status`, `r_status`) VALUES
@@ -223,7 +199,7 @@ INSERT INTO `tbl_shows` (`s_id`, `st_id`, `theatre_id`, `movie_id`, `start_date`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_show_time`
+-- Struktur dari tabel `tbl_show_time`
 --
 
 CREATE TABLE `tbl_show_time` (
@@ -231,10 +207,10 @@ CREATE TABLE `tbl_show_time` (
   `screen_id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL COMMENT 'noon,second,etc',
   `start_time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_show_time`
+-- Dumping data untuk tabel `tbl_show_time`
 --
 
 INSERT INTO `tbl_show_time` (`st_id`, `screen_id`, `name`, `start_time`) VALUES
@@ -262,7 +238,7 @@ INSERT INTO `tbl_show_time` (`st_id`, `screen_id`, `name`, `start_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_theatre`
+-- Struktur dari tabel `tbl_theatre`
 --
 
 CREATE TABLE `tbl_theatre` (
@@ -272,10 +248,10 @@ CREATE TABLE `tbl_theatre` (
   `place` varchar(100) NOT NULL,
   `state` varchar(50) NOT NULL,
   `pin` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `tbl_theatre`
+-- Dumping data untuk tabel `tbl_theatre`
 --
 
 INSERT INTO `tbl_theatre` (`id`, `name`, `address`, `place`, `state`, `pin`) VALUES
@@ -289,119 +265,130 @@ INSERT INTO `tbl_theatre` (`id`, `name`, `address`, `place`, `state`, `pin`) VAL
 --
 
 --
--- Indexes for table `tbl_bookings`
+-- Indeks untuk tabel `tbl_bookings`
 --
 ALTER TABLE `tbl_bookings`
   ADD PRIMARY KEY (`book_id`);
 
 --
--- Indexes for table `tbl_contact`
+-- Indeks untuk tabel `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   ADD PRIMARY KEY (`contact_id`);
 
 --
--- Indexes for table `tbl_login`
+-- Indeks untuk tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_movie`
+-- Indeks untuk tabel `tbl_movie`
 --
 ALTER TABLE `tbl_movie`
   ADD PRIMARY KEY (`movie_id`);
 
 --
--- Indexes for table `tbl_news`
+-- Indeks untuk tabel `tbl_news`
 --
 ALTER TABLE `tbl_news`
   ADD PRIMARY KEY (`news_id`);
 
 --
--- Indexes for table `tbl_registration`
+-- Indeks untuk tabel `tbl_registration`
 --
 ALTER TABLE `tbl_registration`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `tbl_screens`
+-- Indeks untuk tabel `tbl_screens`
 --
 ALTER TABLE `tbl_screens`
   ADD PRIMARY KEY (`screen_id`);
 
 --
--- Indexes for table `tbl_shows`
+-- Indeks untuk tabel `tbl_shows`
 --
 ALTER TABLE `tbl_shows`
   ADD PRIMARY KEY (`s_id`);
 
 --
--- Indexes for table `tbl_show_time`
+-- Indeks untuk tabel `tbl_show_time`
 --
 ALTER TABLE `tbl_show_time`
   ADD PRIMARY KEY (`st_id`);
 
 --
--- Indexes for table `tbl_theatre`
+-- Indeks untuk tabel `tbl_theatre`
 --
 ALTER TABLE `tbl_theatre`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_bookings`
+-- AUTO_INCREMENT untuk tabel `tbl_bookings`
 --
 ALTER TABLE `tbl_bookings`
   MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
--- AUTO_INCREMENT for table `tbl_contact`
+-- AUTO_INCREMENT untuk tabel `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
   MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `tbl_login`
+-- AUTO_INCREMENT untuk tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- AUTO_INCREMENT for table `tbl_movie`
+-- AUTO_INCREMENT untuk tabel `tbl_movie`
 --
 ALTER TABLE `tbl_movie`
   MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
--- AUTO_INCREMENT for table `tbl_news`
+-- AUTO_INCREMENT untuk tabel `tbl_news`
 --
 ALTER TABLE `tbl_news`
   MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
--- AUTO_INCREMENT for table `tbl_registration`
+-- AUTO_INCREMENT untuk tabel `tbl_registration`
 --
 ALTER TABLE `tbl_registration`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
--- AUTO_INCREMENT for table `tbl_screens`
+-- AUTO_INCREMENT untuk tabel `tbl_screens`
 --
 ALTER TABLE `tbl_screens`
   MODIFY `screen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT for table `tbl_shows`
+-- AUTO_INCREMENT untuk tabel `tbl_shows`
 --
 ALTER TABLE `tbl_shows`
   MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
--- AUTO_INCREMENT for table `tbl_show_time`
+-- AUTO_INCREMENT untuk tabel `tbl_show_time`
 --
 ALTER TABLE `tbl_show_time`
   MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- AUTO_INCREMENT for table `tbl_theatre`
+-- AUTO_INCREMENT untuk tabel `tbl_theatre`
 --
 ALTER TABLE `tbl_theatre`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
