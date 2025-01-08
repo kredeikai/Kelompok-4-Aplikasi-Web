@@ -1,3 +1,9 @@
+Kelompok 4: Aplikasi Website
+- Latifah Fauzia (2310120008)
+- Muhammad Naufal Ramadhan (2310120012)
+- Muhammad Dzikri Khairrifo (2310120025)
+
+
 THEATERKU
 
 Theater adalah aplikasi pembelian tiket teater online yang dirancang untuk mempermudah akses masyarakat ke berbagai jenis pertunjukan, mulai dari drama, musikal, hingga pentas seni.
