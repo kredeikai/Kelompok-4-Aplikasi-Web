@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Des 2024 pada 11.42
+-- Waktu pembuatan: 08 Jan 2025 pada 06.04
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.1.25
 
@@ -74,7 +74,10 @@ CREATE TABLE `tbl_login` (
 --
 
 INSERT INTO `tbl_login` (`id`, `user_id`, `username`, `password`, `user_type`) VALUES
-(1, 0, 'admin', 'password', 0);
+(1, 0, 'admin', 'password', 0),
+(22, 6, 'THR760801', 'PWD649976', 1),
+(23, 8, 'example1@gmail.com', '1234567', 2),
+(24, 9, 'example@gmail.com', '1234567', 2);
 
 -- --------------------------------------------------------
 
@@ -99,11 +102,9 @@ CREATE TABLE `tbl_movie` (
 --
 
 INSERT INTO `tbl_movie` (`movie_id`, `t_id`, `movie_name`, `cast`, `desc`, `release_date`, `image`, `video_url`, `status`) VALUES
-(1, 3, 'The Invisible Man', 'Elisabeth Moss, Oliver Jackson-Cohen, Aldis Hodge, Storm Reid', 'Cecilia\'s abusive ex-boyfriend fakes his death and becomes invisible to stalk and torment her. She begins experiencing strange events and decides to hunt down the truth on her own.', '2020-03-04', 'images/tim.jpg', 'https://www.youtube.com/watch?v=WO_FJdiY9dA', 0),
-(11, 6, 'Cherry', 'Tom Holland, Ciara Bravo, Harry Holland, Kelli Berglund', 'Cherry (Tom Holland) drifts from college dropout to army medic in Iraq-anchored only by his one true love, Emily (Ciara Bravo). But after returning from the war with PTSD, his life spirals into drugs.', '2021-03-01', 'images/cherry.jpg', 'https://www.youtube.com/watch?v=H5bH6O0bErk', 0),
-(12, 6, 'Godzilla vs. Kong', 'Millie Bobby Brown, Alexander Skarsgard, Rebecca Hall', 'The initial confrontation between the two titans -- instigated by unseen forces -- is only the beginning of the mystery that lies deep within the core of the planet.', '2021-03-31', 'images/gvkpster.jpg', 'https://www.youtube.com/watch?v=odM92ap8_c0', 0),
-(13, 6, 'Outside the Wire', 'Anthony Mackie, Damson Idris, Emily Beecham', 'In the near future, a drone pilot sent into a war zone finds himself paired up with a top-secret android officer on a mission to stop a nuclear attack.', '2021-01-28', 'images/otw.jpg', 'https://www.youtube.com/watch?v=u8ZsUivELbs', 0),
-(17, 6, 'Justice League', 'Ben Affleck, Henry Cavil, Ezra Miller', 'This is a demo description for the movie ZSJL.', '2021-03-22', 'images/zsjl.jpg', 'https://www.youtube.com/watch?v=vM-Bja2Gy04', 0);
+(20, 6, 'Bumi Manusia', 'Iqbaal Ramadhan, Mawar de Jongh, Sha Ine Febriyanti, Ayu Laksmi, Donny Damara, Bryan Domani, Giorgino Abraham, Jerome Kurnia', 'Pada suatu hari di Surabaya, Minke (Iqbaal Ramadhan), seorang pribumi, diajak Robert Suurhof (Jerome Kurnia) melawat ke rumah keluarga Mellema, Boerderij Buitenzorg di Wonokromo. Kedatangan Minke disambut dengan penuh kecurigaan oleh Robert Mellema (Giorgino Abraham) yang justru menyambut Suurhof dengan penuh keakraban, tetapi sebaliknya dengan adiknya Annelies Mellema (Mawar de Jongh) serta ibunya Ontosoroh (Sha Ine Febriyanti) yang menerima Minke dengan gembira.', '2024-12-20', 'images/Bumi_Manusia.jpg', 'https://youtu.be/2BYJaVz_wpM?si=z2bpOQ3uS_hVfgqp', 0),
+(22, 6, 'Petualangan Sherina', 'Sherina Muraf, Didi Petet, Mathias Muchus, Ratna Riantiarno, Butet Kertaradjasa, Henidar Amru, Djaduk Ferianto, Dewi Hughes, Ucy Nurul, Derby Romero', 'Sherina (Sherina Munaf) adalah gadis kecil yang cerdas, energik, dan suka menyanyi. Dia tinggal di Jakarta bersama orang tuanya, Bapak dan Ibu Darmawan (Mathias Muchus dan Uci Nurul).', '2024-11-30', 'images/Petualangan_Sherina.jpg', 'https://youtu.be/pLsLZOwcXM4?si=QxDD8kwIQqJUrNgn', 0),
+(24, 6, 'Laskar Pelangi', 'Cut Mini, Ikranagara, Slamet Rahardjo, Djarot Mathias, Muchus Teuku, Rifnu Wikana', 'Film seru', '2024-11-30', 'images/Laskar_Pelangi_film.jpg', 'https://youtu.be/8ZYOqARRTng?si=e-SsKeOxjG8W-Lo5', 0);
 
 -- --------------------------------------------------------
 
@@ -143,6 +144,14 @@ CREATE TABLE `tbl_registration` (
   `age` int(2) NOT NULL,
   `gender` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `tbl_registration`
+--
+
+INSERT INTO `tbl_registration` (`user_id`, `name`, `email`, `phone`, `age`, `gender`) VALUES
+(8, 'Dzikri', 'example1@gmail.com', '8161575534', 20, 'gender'),
+(9, 'akun', 'example@gmail.com', '8161575534', 20, 'gender');
 
 -- --------------------------------------------------------
 
@@ -193,8 +202,9 @@ CREATE TABLE `tbl_shows` (
 INSERT INTO `tbl_shows` (`s_id`, `st_id`, `theatre_id`, `movie_id`, `start_date`, `status`, `r_status`) VALUES
 (19, 15, 6, 11, '2021-04-15', 0, 1),
 (20, 20, 6, 13, '2021-04-15', 0, 1),
-(21, 19, 6, 12, '2021-03-31', 1, 1),
-(22, 18, 6, 17, '2021-04-16', 1, 1);
+(21, 19, 6, 12, '2021-03-31', 0, 1),
+(22, 18, 6, 17, '2021-04-16', 0, 1),
+(23, 20, 6, 20, '2024-12-25', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +243,8 @@ INSERT INTO `tbl_show_time` (`st_id`, `screen_id`, `name`, `start_time`) VALUES
 (18, 6, 'Noon', '00:02:00'),
 (19, 6, 'First', '06:35:00'),
 (20, 6, 'Second', '09:18:00'),
-(21, 5, 'Matinee', '20:04:00');
+(21, 5, 'Matinee', '20:04:00'),
+(22, 5, 'Noon', '15:00:00');
 
 -- --------------------------------------------------------
 
@@ -344,25 +355,25 @@ ALTER TABLE `tbl_contact`
 -- AUTO_INCREMENT untuk tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_movie`
 --
 ALTER TABLE `tbl_movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_news`
 --
 ALTER TABLE `tbl_news`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_registration`
 --
 ALTER TABLE `tbl_registration`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_screens`
@@ -374,13 +385,13 @@ ALTER TABLE `tbl_screens`
 -- AUTO_INCREMENT untuk tabel `tbl_shows`
 --
 ALTER TABLE `tbl_shows`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_show_time`
 --
 ALTER TABLE `tbl_show_time`
-  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `st_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_theatre`
